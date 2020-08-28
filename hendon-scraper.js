@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const fs = require('fs')
 
 const findTournamentData = () => {
   (async () => {
@@ -30,7 +31,11 @@ const findTournamentData = () => {
         tournamentList: tournamentListArr
       }
     })
-
+    fs.writeFile(
+      './json/tournament_data.json',
+      JSON.stringify(data, null, 2),
+      (err) => err ? console.log('Data not written!', err) : console.log('Data written!')
+    )
     await browser.close()
   })()
 }
