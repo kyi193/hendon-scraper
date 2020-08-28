@@ -1,0 +1,8 @@
+node_modules
+json
+.DS_Store
+dist
+*.log
+coverage
+.idea
+.env
